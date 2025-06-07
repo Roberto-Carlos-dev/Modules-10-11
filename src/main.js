@@ -14,68 +14,11 @@
       <p>Текст</p>
   </li>
 */
-
-
-// Функція завантаження і вставлення HTML частин (partials)
-async function loadPartials() {
-  try {
-    // Завантаження header.html
-    const headerRes = await fetch('./partials/header.html');
-    const headerHtml = await headerRes.text();
-    document.getElementById('header-placeholder').innerHTML = headerHtml;
-
-    // Завантаження tasks-list.html
-    const tasksRes = await fetch('./partials/tasks-list.html');
-    const tasksHtml = await tasksRes.text();
-    document.getElementById('tasks-placeholder').innerHTML = tasksHtml;
-  } catch (error) {
-    console.error('Помилка завантаження partials:', error);
-  }
-}
-
-// Запускаємо завантаження одразу при старті
-loadPartials();
-let tasks = []; // масив для збереження завдань
-
-// функція створення розмітки завдання
-function createTaskMarkup(title, description) {
-  return `
-    <li class="task-list-item">
-      <button class="task-list-item-btn">Delete</button>
-      <h3>${title}</h3>
-      <p>${description}</p>
-    </li>
-  `;
-}
-
-// додавання завдання
-function handleAddTask(e) {
-  e.preventDefault();
-
-  const form = e.currentTarget;
-  const title = form.elements.taskName.value.trim();
-  const description = form.elements.taskDescription.value.trim();
-
-  if (!title || !description) return;
-
-  const markup = createTaskMarkup(title, description);
-
-  const list = document.querySelector('#task-list');
-  list.insertAdjacentHTML('beforeend', markup);
-
-  tasks.push({ title, description });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  form.reset(); // очищення форми
-}
-
-// видалення завдання
-import { renderTask, renderAllTasks } from './js/renderTasks.js';
-import { saveTasks, loadTasksFromStorage } from './js/localStorageApi.js';
+import { renderTask, renderAllTasks } from './js/render-tasks.js';
+import { saveTasks, loadTasksFromStorage } from './js/local-storage-api.js';
 import { createTask, addTask, deleteTask, tasks } from './js/tasks.js';
 import { refs } from './js/refs.js';
 import { initThemeToggle } from './js/theme-switcher.js';
-
 
 // Додаємо HTML-партіали
 async function loadPartials() {
