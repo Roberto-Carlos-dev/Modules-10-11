@@ -13,6 +13,11 @@ export function renderTask(task) {
 }
 
 export function renderAllTasks(tasks) {
+  if (!refs.taskList) {
+    console.warn('Елемент refs.taskList не знайдено');
+    return;
+  }
+
   refs.taskList.innerHTML = '';
   tasks.forEach(renderTask);
 }
