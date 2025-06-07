@@ -16,11 +16,11 @@
 */
 
 // 1. Імпортую потрібні функції та змінні
-import { renderTask, renderAllTasks } from './render-tasks.js';// функції для відображення завдань
-import { saveTasks, loadTasksFromStorage } from './local-storage-api.js';// для збереження і завантаження з localStorage
-import { createTask, addTask, deleteTask, tasks } from './tasks.js';// логіка для створення/додавання/видалення задач
-import { refs } from './refs.js';// збережені посилання на DOM-елементи
-import { initThemeToggle } from './theme-switcher.js';// перемикач теми (світла/темна)
+import { renderTask, renderAllTasks } from './js/render-tasks.js';// функції для відображення завдань
+import { saveTasks, loadTasksFromStorage } from './js/local-storage-api.js';// для збереження і завантаження з localStorage
+import { createTask, addTask, deleteTask, tasks } from './js/tasks.js';// логіка для створення/додавання/видалення задач
+import { refs } from './js/refs.js';// збережені посилання на DOM-елементи
+import { initThemeToggle } from './js/theme-switcher.js';// перемикач теми (світла/темна)
 
 // 2. Асинхронна функція для завантаження HTML-частин (partials) з папки partials
 async function loadPartials() {
