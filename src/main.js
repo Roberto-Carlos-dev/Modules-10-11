@@ -25,11 +25,11 @@ import { initThemeToggle } from './js/theme-switcher.js';// перемикач �
 // 2. Асинхронна функція для завантаження HTML-частин (partials) з папки partials
 async function loadPartials() {
   try {
-    const headerRes = await fetch('./partials/header.html'); // завантажуємо header.html
+    const headerRes = await fetch('./header.html'); // завантажуємо header.html
     const headerHtml = await headerRes.text(); // читаємо як текст
     document.getElementById('header-placeholder').innerHTML = headerHtml; // вставляємо у DOM
 
-    const tasksRes = await fetch('./partials/tasks-list.html'); // завантажуємо tasks-list.html
+    const tasksRes = await fetch('./tasks-list.html'); // завантажуємо tasks-list.html
     const tasksHtml = await tasksRes.text(); // читаємо як текст
     document.getElementById('tasks-placeholder').innerHTML = tasksHtml; // вставляємо у DOM
   } catch (err) {

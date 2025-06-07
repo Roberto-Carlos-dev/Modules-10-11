@@ -1,6 +1,6 @@
 export const refs = {
-  form: null,
-  titleInput: null,
-  bodyInput: null,
-  taskList: null,
+  form: document.querySelector('#task-form'),
+  titleInput: document.querySelector('input[name="taskName"]'),
+  bodyInput: document.querySelector('input[name="taskDescription"]'),
+  taskList: document.querySelector('#task-list'),
 };
